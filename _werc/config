@@ -1,0 +1,11 @@
+#masterSite=default.cat-v.org
+siteTitle='Soft Machine'
+siteSubTitle='Your computer is alive'
+
+meta_description='Home of programming and electronics projects and a FOSS blog'
+meta_keywords='FOSS, computers, programming, C, electronics, synthesizer, Unix, Plan 9'
+
+#conf_enable_comments
+#conf_enable_wiki
+
+#ll_add handlers_body_head echo '<div style="text-align:right"><script type="text/javascript" src="http://www.reddit.com/r/programming/button.js?t=1"></script></div>'
