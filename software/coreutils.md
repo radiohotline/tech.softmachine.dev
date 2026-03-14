@@ -4,12 +4,12 @@ Minimalist coreutils implementation in C. It contains only the functions that I 
 
 To-Do:  
 - [x] echo  
-- [ ] cat (marked undone because of SERIOUS FATAL FLAW that I need to fix)  
+- [x] cat
 - [x] tac  
 - [x] head  
 - [x] tail  
 - [x] touch  
-- [ ] cp  
+- [x] cp  
 - [ ] dd  
 - [ ] df  
 - [ ] dir  

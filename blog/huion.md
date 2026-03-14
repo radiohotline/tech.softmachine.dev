@@ -45,35 +45,31 @@ I am using the version of the tablet cable that comes with a separate input and 
 
 If your tablet is a USB device, it should appear in the output of `lsusb` (from `usbutils`), as mine does:
 
-```
-...  
-Bus 001 Device 049: ID 256c:006d  Huion Tablet_GT1302  
-...
-```
+	...  
+	Bus 001 Device 049: ID 256c:006d  Huion Tablet_GT1302  
+	...
+
 
 At this stage, I had installed `xf86-input-wacom`. The tablet seems to wake up, but shuts off immediately, and that repeats endlessly. I had ruled out the issue being with the tablet, because it worked on other laptops running Windows. 
 
 A quick `sudo dmesg | grep -i usb` shows that the connection is stable and not disconnecting over and over.
 
-```
-[14449.733946] usb 1-1: new full-speed USB device number 33 using xhci_hcd  
-[14449.921838] usb 1-1: New USB device found, idVendor=256c, idProduct=006d, bcdDevice= 1.02  
-[14449.921902] usb 1-1: New USB device strings: Mfr=5, Product=6, SerialNumber=0  
-[14449.921941] usb 1-1: Product: Huion Tablet_GT1302  
-[14449.969508] input: Huion Tablet_GT1302 Pen as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input185  
-[14450.025359] input: Huion Tablet_GT1302 Pad as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input186  
-[14450.026896] input: Huion Tablet_GT1302 Touch Strip as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input187  
-[14450.028279] input: Huion Tablet_GT1302 Dial as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input188  
-[14450.031833] input: Huion Tablet_GT1302 Group Buttons as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input189  
-[14450.033394] uclogic 0003:256C:006D.0040: input,hidraw4: 
-USB HID v1.11 Keypad [Huion Tablet_GT1302] on usb-0000:00:14.0-1/input0  
-[14450.053384] input: Huion Tablet_GT1302 as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.1/0003:256C:006D.0041/input/input191  
-[14450.055795] uclogic 0003:256C:006D.0041: input,hidraw5: USB HID v1.11 Device [Huion Tablet_GT1302] on usb-0000:00:14.0-1/input1  
-[14450.080329] input: Huion Tablet_GT1302 Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.2/0003:256C:006D.0042/input/input192  
-[14450.132366] input: Huion Tablet_GT1302 Consumer Control as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.2/0003:256C:006D.0042/input/input193  
-[14450.138729] input: Huion Tablet_GT1302 System Control as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.2/0003:256C:006D.0042/input/input194  
-[14450.143990] uclogic 0003:256C:006D.0042: input,hidraw6: USB HID v1.0b Keyboard [Huion Tablet_GT1302] on usb-0000:00:14.0-1/input2
-```
+	[14449.733946] usb 1-1: new full-speed USB device number 33 using xhci_hcd  
+	[14449.921838] usb 1-1: New USB device found, idVendor=256c, idProduct=006d, bcdDevice= 1.02  
+	[14449.921902] usb 1-1: New USB device strings: Mfr=5, Product=6, SerialNumber=0  
+	[14449.921941] usb 1-1: Product: Huion Tablet_GT1302  
+	[14449.969508] input: Huion Tablet_GT1302 Pen as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input185  
+	[14450.025359] input: Huion Tablet_GT1302 Pad as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input186  
+	[14450.026896] input: Huion Tablet_GT1302 Touch Strip as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input187  
+	[14450.028279] input: Huion Tablet_GT1302 Dial as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input188  
+	[14450.031833] input: Huion Tablet_GT1302 Group Buttons as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.0/0003:256C:006D.0040/input/input189  
+	[14450.033394] uclogic 0003:256C:006D.0040: input,hidraw4: USB HID v1.11 Keypad [Huion Tablet_GT1302] on usb-0000:00:14.0-1/input0  
+	[14450.053384] input: Huion Tablet_GT1302 as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.1/0003:256C:006D.0041/input/input191  
+	[14450.055795] uclogic 0003:256C:006D.0041: input,hidraw5: USB HID v1.11 Device [Huion Tablet_GT1302] on usb-0000:00:14.0-1/input1  
+	[14450.080329] input: Huion Tablet_GT1302 Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.2/0003:256C:006D.0042/input/input192  
+	[14450.132366] input: Huion Tablet_GT1302 Consumer Control as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.2/0003:256C:006D.0042/input/input193  
+	[14450.138729] input: Huion Tablet_GT1302 System Control as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1:1.2/0003:256C:006D.0042/input/input194  
+	[14450.143990] uclogic 0003:256C:006D.0042: input,hidraw6: USB HID v1.0b Keyboard [Huion Tablet_GT1302] on usb-0000:00:14.0-1/input2
 
 Now this was an error on my end. My laptop cannot supply enough power, unlike my other one, so the solution was to connect the red cable (power cable) to a mobile charger adaptor.
 
@@ -163,15 +159,13 @@ or
 
 `xsetwacom set [inputid] MapToOutput [display]`
 
-where [inputid] is the stylus ID or name as found in `xsetwacom list devices` or `xinput list` and [display] is the desired display ID. If you use the name of the stylus (e.g. "Huion Tablet_GT1302 Pen stylus"), don't forget to wrap it in quotations marks.
+where [inputid] is the stylus ID or name as found in `xsetwacom list devices` or `xinput list` and [display] is the desired display ID. If you use the name of the stylus (e.g. "Huion Tablet\_GT1302 Pen stylus"), don't forget to wrap it in quotations marks.
 
 **But wait! None of this works!**
 
 If nothing worked so far, try the DIGImend drivers. They're available in the AUR as `digimend-kernel-drivers-dkms`. After building them, run the following to unload the old tablet drivers used by Huion:
 
-```
-sudo modprobe -r hid-kye hid-uclogic hid-polostar hid-viewsonic
-```
+`sudo modprobe -r hid-kye hid-uclogic hid-polostar hid-viewsonic`
 
 Reconnect the tablet, and the pen should work now. Repeat the above tests.
 
@@ -310,10 +304,8 @@ Since input device IDs often change across sessions, the script fetches the ID a
 There are several ways to run custom processes at startup. The Arch Wiki article linked at the beginning details an approach for running the script when the tablet is connected. I use Artix with Runit, so I have to use a different `udev` that runs the script directly. This udev method didn't work for me. I'm not sure why, but I'm documenting it here anyway.
 Unplugging the tablet will not automatically restore display settings, so add an event for device removal too:
 
-```
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", RUN+="/usr/local/bin/wacom-config.sh"  
-ACTION=="remove", SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", RUN+="/usr/local/bin/reset-display.sh"
-```
+	ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", RUN+="/usr/local/bin/wacom-config.sh"  
+	ACTION=="remove", SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", RUN+="/usr/local/bin/reset-display.sh"
 
 The display script:
 
