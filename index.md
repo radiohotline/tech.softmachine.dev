@@ -6,6 +6,8 @@ This site is subdivided into a few hubs for my various projects.
 
 Amateur comes from Latin *amātor* (lover) -- computers have been a life-long passion of mine, though they did not return the love very often. Over the years, I realized that it was hardware, and not programming, that appealed to me most. Regardless, I strive to become a better programmer, and I will share here microprograms that are born out of my successful attempts.
 
+I am a former CS and CE student. I did not continue my studies, but the love that brought me to those departments remains, and I value lifelong learning, even if it is self-taught.
+
 ## Human-machine interfacing
 
 I am passionate about open-source hardware and software. Technology should not hide its workings from you and should serve as a helpful extension. While unmanned automation can be very useful, the user should still be able to control, study, repair, and modify various parts of the system, whether its a program or a microwave.

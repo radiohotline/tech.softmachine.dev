@@ -3,11 +3,15 @@
 First published: 2026/03/13
 
 ## Prerequisites:
-**Tablet:** Huion Kamvas 13 2.5k QHD  
-**Laptop:** Dell Inspiron 15-3567  
-**OS:** Artix Linux running i3 (Xorg)
+
+__Tablet:__ Huion Kamvas 13 2.5k QHD   
+ 
+__Laptop:__ Dell Inspiron 15-3567  
+
+__OS:__ Artix Linux running i3 (Xorg)
 
 ## The Problem:
+
 Xorg's wacom drivers (`xf86-input-wacom`) don't work out of the box.
 
 I will detail here the methods I tried to get my tablet up and running. While I highly suggest consulting the [Arch Linux Wiki](https://wiki.archlinux.org/title/Graphics_tablet), the information here may be useful to those troubleshooting the Kamvas 13 if the docs don't help.
@@ -198,20 +202,30 @@ For example, if I press and release the topmost button, I get:
 and I note this down as "Button 1: 1", in the format of "Button [physical location]: [xinput output]" (you note the number following "press" or "release" as the ID).
 
 My tests culminated into the following (buttons are counted from top to bottom):
->Button 1: 1  
->Button 2: 2  
->Button 3: 3  
->Button 4: 8  
->Button 5: 9  
->Button 6: 10  
->Button 7: 11
+
+> Button 1: 1   
+
+> Button 2: 2   
+
+> Button 3: 3  
+
+> Button 4: 8  
+
+> Button 5: 9  
+
+> Button 6: 10  
+
+> Button 7: 11
 
 This is the expected output. The skipped numbers are reserved, as mentioned by the DIGImend README:
->Note that buttons are numbered 1, 2, 3, 8, 9, 10, and so on, i.e. buttons 4, 5, 6, and 7 are not used. They're reserved for vertical and horizontal scrolling events by the X server.
+
+> Note that buttons are numbered 1, 2, 3, 8, 9, 10, and so on, i.e. buttons 4, 5, 6, and 7 are not used. They're reserved for vertical and horizontal scrolling events by the X server.
 
 Additionally, I tested the stylus buttons again via `xinput test 18` and got the following in the mess of motion detection. I pressed each button multiple times to ensure I can catch it easily after ending the test process:
->Top button: 1  
->Bottom button: 3
+
+> Top button: 1    
+
+> Bottom button: 3
 
 Now, this overlap in numbers may seem problematic, but it is handled well in `xsetwacom`, as we can map them to different input keys.
 
@@ -225,65 +239,74 @@ To set the last button (button 11) to Ctrl+Z, run:
 A quick test in Krita works. `showkeys -a` output is `^Z       26 0032 0x1a`. Repeat the process for every button on your tablet. To see all supported key modifiers, run `xsetwacom list modifiers`.
 
 My configuration, which is intended for Krita, is laid out as such:
->Button 1: Save (Ctrl+S)  
->Button 2: Mirror canvas (M)  
->Button 3: Zoom in (Ctrl+=)  
->Button 4: Pan (Space)  
->Button 5: Zoom out (Ctrl+-)  
->Button 6: Resize brush (by dragging) (Shift)  
->Button 7: Undo (Ctrl+Z)
+
+> Button 1: Save (Ctrl+S)  
+
+> Button 2: Mirror canvas (M)  
+
+> Button 3: Zoom in (Ctrl+=)  
+
+> Button 4: Pan (Space)  
+
+> Button 5: Zoom out (Ctrl+-)  
+
+> Button 6: Resize brush (by dragging) (Shift)  
+
+> Button 7: Undo (Ctrl+Z)
 
 My stylus buttons:
->Button 1: Eraser (E)  
->Button 2: Eyedropper (hold) (Ctrl)
+
+> Button 1: Eraser (E)  
+
+> Button 2: Eyedropper (hold) (Ctrl)
 
 And the final config script:
 
-	#!/bin/sh  
-
-	# Detect device IDs  
-
+	#!/bin/sh   
+    
+	# Detect device IDs
+    
 	for i in $(seq 10); do  
-    		list=$(xsetwacom list devices)  
+        list=$(xsetwacom list devices)  
     		
-		if echo "$list" | grep -q Huion; then  
-        		break  
-    		fi  
+		if echo "$list" | grep -q Huion; then
+                break  
+    	fi  
     		
 		sleep 1 # waiting through startup time  
 	done  
-
+    
 	list=$(xsetwacom list devices)  
 	pad=$(echo "${list}" | awk '/Pad pad/{print $6; exit}')  
 	stylus=$(echo "${list}" | awk '/Pen stylus/{print $6; exit}')  
-
+    
 	if [ -z "${pad}" ]; then  
-		exit 0  
+        exit 0  
 	fi  
-
+    
 	if [ -z "${stylus}" ]; then  
-		exit 0  
+        exit 0  
 	fi  
-
+    
 	# Tablet display + stylus
-
+    
 	#xrandr | grep -q "HDMI1 connected" || exit 0 # this is commented out because it's handled in the final i3 script
-
+    
 	xrandr --output eDP1 --mode 1366x768 --scale 1.874x2.083 --output HDMI1 --mode 2560x1600 --same-as eDP1
-
+    
 	xrandr --output eDP1 --off
-
+    
 	sleep 1
-
+    
 	xsetwacom set "$stylus" MapToOutput HDMI1
-
+    
 	# Functions
-
+    
 	setpad() { xsetwacom set "$pad" button "$1" "$2"; }  
 	setstylus() { xsetwacom set "$stylus" button "$1" "$2"; }
-
+    
 	# Tablet buttons
-
+    
 	setpad 1 "key +ctrl s -ctrl"  
 	setpad 2 "key m"  
 	setpad 3 "key +ctrl = -ctrl"  
@@ -291,9 +314,9 @@ And the final config script:
 	setpad 9 "key +ctrl - -ctrl"  
 	setpad 10 "key +shift"  
 	setpad 11 "key +ctrl z -ctrl"  
-
+    
 	# Stylus buttons
-
+    
 	setstylus 2 "key e"  
 	setstylus 3 "key +ctrl"
 
@@ -310,19 +333,19 @@ Unplugging the tablet will not automatically restore display settings, so add an
 The display script:
 
 	#!/bin/sh  
-
+    
 	export DISPLAY=:0  
 	export XAUTHORIY=/home/troy/.Xauthority  
-
+    
 	xrandr --output HDMI1 --off --output eDP1 --auto --scale 1x1 --primary
 
 In the end, I made the script run with i3, such that I can refresh my i3 session when I plug in the tablet:
 
 	#!/bin/sh  
-
+    
 	export DISPLAY=:0  
 	export XAUTHORITY=/home/troy/.Xauthority  
-
+    
 	if xrandr | grep -q "HDMI1 connected"; then  
         	/home/troy/wacom-config.sh  
 	else  

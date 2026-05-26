@@ -1,0 +1,12 @@
+http://tech.softmachine.dev:443/blog/
+http://tech.softmachine.dev:443/blog/huion
+http://tech.softmachine.dev:443/games/
+http://tech.softmachine.dev:443/games/pico8/
+http://tech.softmachine.dev:443/games/pico8/alice
+http://tech.softmachine.dev:443/hardware/
+http://tech.softmachine.dev:443/software/
+http://tech.softmachine.dev:443/software/conway
+http://tech.softmachine.dev:443/software/coreutils
+http://tech.softmachine.dev:443/software/kilo
+http://tech.softmachine.dev:443/software/loveletter
+http://tech.softmachine.dev:443/software/troysort
