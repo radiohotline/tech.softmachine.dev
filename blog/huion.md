@@ -352,3 +352,7 @@ In the end, I made the script run with i3, such that I can refresh my i3 session
         	xrandr --output HDMI1 --off  
         	xrandr --output eDP1 --auto --scale 1x1 --primary  
 	fi
+
+## Conclusion
+
+To be frank, I did not achieve an efficient set of results, due to my inexperience. Some of the steps written above could have been executed in a better manner. I will attempt in the future another solution, including one for Wayland.
