@@ -1,6 +1,6 @@
 # Strachey's Love Letter Algorithm
 
-[GitHub](https://github.com/radiohotline/loveletter)
+[Source Code](https://git.softmachine.dev/loveletter/)
 
 I made this a few years ago. Most of my experience with C++ was restricted to university classes, and I wanted to do something fun. It's a very basic project, and I probably implemented it inefficiently.
 

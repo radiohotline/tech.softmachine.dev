@@ -13,7 +13,7 @@ footer { display: flex; justify-content: space-between; }
 /* cut here to leave vanity behind */
 
 body { margin:0; padding: 0; font-family: Helvetica, Verdana, Arial, 'Liberation Sans', FreeSans, sans-serif; background-color: #ffffea; }
-a { text-decoration: none; color: }
+a { text-decoration: underline; }
 a:hover { text-decoration: underline; }
 .thisPage { color: black; }
 

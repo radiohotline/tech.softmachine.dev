@@ -1,1 +1,1 @@
-Found here are my poor attempts at manipulating the metallic flesh of the machine. Unfortunately hosted on [GitHub](https://github.com/radiohotline/). A self-hosted version control system will be set up.
+Found here are my poor attempts at manipulating the metallic flesh of the machine. Code is hosted at [git.softmachine.dev](https://git.softmachine.dev/) and on [GitHub](https://github.com/radiohotline/).

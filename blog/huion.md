@@ -4,11 +4,9 @@ First published: 2026/03/13
 
 ## Prerequisites:
 
-__Tablet:__ Huion Kamvas 13 2.5k QHD   
- 
-__Laptop:__ Dell Inspiron 15-3567  
-
-__OS:__ Artix Linux running i3 (Xorg)
+- __Tablet:__ Huion Kamvas 13 2.5k QHD   
+- __Laptop:__ Dell Inspiron 15-3567  
+- __OS:__ Artix Linux running i3 (Xorg)
 
 ## The Problem:
 
@@ -163,9 +161,9 @@ or
 
 `xsetwacom set [inputid] MapToOutput [display]`
 
-where [inputid] is the stylus ID or name as found in `xsetwacom list devices` or `xinput list` and [display] is the desired display ID. If you use the name of the stylus (e.g. "Huion Tablet\_GT1302 Pen stylus"), don't forget to wrap it in quotations marks.
+where `[inputid]` is the stylus ID or name as found in `xsetwacom list devices` or `xinput list` and `[display]` is the desired display ID. If you use the name of the stylus (e.g. "Huion Tablet\_GT1302 Pen stylus"), don't forget to wrap it in quotations marks.
 
-**But wait! None of this works!**
+__But wait! None of this works!__
 
 If nothing worked so far, try the DIGImend drivers. They're available in the AUR as `digimend-kernel-drivers-dkms`. After building them, run the following to unload the old tablet drivers used by Huion:
 
@@ -173,7 +171,7 @@ If nothing worked so far, try the DIGImend drivers. They're available in the AUR
 
 Reconnect the tablet, and the pen should work now. Repeat the above tests.
 
-If the tablet isn't detected by your system, the issue might be with the USB port you used. Try other ones or wait for a bit, as there could be a delay. However, it is also possible that USB inputs are sleeping because of power-saving settings. If you're using `powertop`, that would be the reason. In `powertop`, head to `tunables` and set your tablet to `bad` to inhibit sleep.
+If the tablet isn't detected by your system, the issue might be with the USB port you used. Try other ones or wait for a bit, as there could be a delay. However, it is also possible that USB inputs are sleeping because of power-saving settings. If you're using `powertop`, that would find the reason. In `powertop`, head to `tunables` and set your tablet to `bad` to inhibit sleep.
 
 #### Pen pressure
 
@@ -203,18 +201,18 @@ and I note this down as "Button 1: 1", in the format of "Button [physical locati
 
 My tests culminated into the following (buttons are counted from top to bottom):
 
-> Button 1: 1   
-
+> Button 1: 1
+> 
 > Button 2: 2   
-
+>
 > Button 3: 3  
-
+>
 > Button 4: 8  
-
+>
 > Button 5: 9  
-
+>
 > Button 6: 10  
-
+>
 > Button 7: 11
 
 This is the expected output. The skipped numbers are reserved, as mentioned by the DIGImend README:
@@ -224,7 +222,7 @@ This is the expected output. The skipped numbers are reserved, as mentioned by t
 Additionally, I tested the stylus buttons again via `xinput test 18` and got the following in the mess of motion detection. I pressed each button multiple times to ensure I can catch it easily after ending the test process:
 
 > Top button: 1    
-
+>
 > Bottom button: 3
 
 Now, this overlap in numbers may seem problematic, but it is handled well in `xsetwacom`, as we can map them to different input keys.
