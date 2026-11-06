@@ -27,7 +27,7 @@ Bought used. I love it a lot. I got it both for my studies and to run 9front, be
 - __Shell__: sh / zsh
 - __Editor__: vim
 - __Browser__: qutebrowser
-- __Music player__: kew
+- __Music player__: cmus
 
 #### Screenshot
 
