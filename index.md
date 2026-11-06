@@ -18,7 +18,7 @@ I am passionate about open-source hardware and software. Technology should not h
 
 I am particularly interested in highly interactive technology, things whose flow of instruction can be manipulated in real-time by the user -- think turning knobs in a simulation. While this can be said about utilities like graphical servers and windowing managers, I count hardware as well. Most such hardware is analog, it seems. Analog will always have a special place in my heart over digital because it has "soul".
 
-## "Philosophy" or Why I Even Bother
+## Why I Even Bother
 
 __TL;DR__ Unix philosophy good. Plan 9 good. My ideas are not a philosophy but a self-imposed dogma. I do not consider myself to be a "programmer", even if I write (bad) code.
 
@@ -27,4 +27,3 @@ I believe that software and hardware should do just about what they're intended 
 While hardware nowadays is powerful enough that programs need not be optimized down to the nanosecond, I find value in minimizing how much of my resources a program uses, allowing more room for complex and heavy operations, or even better: reducing the hardware specs themselves. This was driven by me having to spend time with a slow computer that often froze when its RAM reached 50% of use. I found myself minimizing RAM to the extreme, forgoing GUI most of the time and using the lightest programs I could find. Even though I did this out of necessity, the habit stuck, and I found in simplicity a great beauty. Utilities should be purely functional, without unnecessary fluff (Gnu...), unless, well, you want it and can afford to use it. My paranoid views of the world combined with my susceptibility to radicalism brought me into this hole.
 
 Technological advancement is too rapid for my liking, too. Upon the inception of the Industrial Revolution, technology became our bane and curse, as much as it is our "saviour" in many fields. The heavy commercialization of practically everything in the world has led to many practices in production and design that I find unsavory and even harmful if you consider the environment. For computers in particular, I see a trend in advancement that grows at an unreasonably fast pace, and software tends to catch up and bloat. This is evident if you consider the minimum required RAM for the average computer user over the years, especially when many basic open source system software projects, including entire Linux desktop setups, have not changed as much in their requirements over the course of decades.
-

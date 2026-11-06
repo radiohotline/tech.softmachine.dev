@@ -29,6 +29,10 @@ Bought used. I love it a lot. I got it both for my studies and to run 9front, be
 - __Browser__: qutebrowser
 - __Music player__: kew
 
+#### Screenshot
+
+<a href="/img/setup.jpg"><img src="/img/setup.jpg" width="500" alt="Screenshot of DWM. The wallpaper shows two kittens, and a floating terminal shows fetch output." title="Setup screenshot"></a>
+
 ### MSI Sword 15 A11UD (2022-present)
 
 Probably the worst purchase I've made. Due to my inexperience, I thought gaming laptops were a "good deal". I wanted something with a better GPU, expecting myself to get into a lot of graphics work. But I also wanted to game on it. Overall, I'm satisfied with it and I use it for running heavy music production software, but that fan noise when gaming (even lighter games!) is troubling. I only have fan noise issues on Windows, because my Linux setup does not even use the GPU. Additionally, Windows has a CPU usage spike at startup. I recently got the motherboard replaced. I will have to investigate dust, fans, and thermal paste issues... later, because I'm just using my Thinkpad for now (busy!).

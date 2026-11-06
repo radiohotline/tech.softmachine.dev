@@ -2,7 +2,7 @@
 
 First published: 2026/10/29
 
-
+The title is a joke. To believe is to stop thinking. This is not an ideology but a list of my preferences.
 
 ## Things I dislike
 
